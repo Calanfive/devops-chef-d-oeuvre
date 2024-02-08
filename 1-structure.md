@@ -26,7 +26,9 @@ Aux alentours des années 2000, manifeste agile, 12 principes autour des 4 grand
 Sprint / Itération (schéma cycle itératif et incrémental) ... autre manière de penser son code / Tickets / Kamban / Trello / Github / Git /
 Histoire d'internet et des datas (explosion du nb de données) / besoins industriels augmentent = nouveaux standards industriels /  Google 2003 : SRE (cours) / rapprochement DEV/OPS, automatisation, Cloud, IAAS (infrastructure as a service - ex: Neon)
 Aujourd'hui, plus une exception mais la règle, d'où l'enjeu pour les devs et le monde de la tech, d'apprendre ces outils et cette culture. (d'où le passage de ma certif).
-Dans le cadre de ma formation, j'ai eu l'occasion de travailler sur -PROJET-DESCRIPTION GENERALE- et besoin d'apprendre le DevOps.  
+Dans le cadre de ma formation, j'ai eu l'occasion de travailler sur -PROJET-DESCRIPTION GENERALE- et besoin d'apprendre le DevOps.
+
+Dans le cadre de notre formation CDA, nous développons un projet de groupe appelé GrenoTour. Nous avons souhaité un
 
 # C1 : 
 ## Versionnement
@@ -58,7 +60,7 @@ Ci dessous, un exemple de l'architecture de notre travail :
 Notre groupe étant composé de trois développeurs juniors, nous sommes en constants progrès sur le .... entre les différentes tâches à effectuer. 
 Gitub nous permet d'utiliser la méthode Kanban. Les tickets y sont déposés par priorité après concertation lors de réunions. Chaque ticket est attribué à une développeur et les statuts sont mis à jour après validation des PR. 
 [SCREENSHOT KANBAN GITHUB]
-La progression est fluide et la mise en place de sprints courts nous garantit une bonne réactivité face aux difficultés rencontrées
+La progression est fluide et la mise en place de sprints courts nous garantit une bonne réactivité face aux difficultés rencontrées.
 
 Cet environnement multi-contributeurs ne pourrait correctement fonctionner sans la mise en place de Pull Request. Ici encore l'outil Github propose un système de validation (ou code review). Lorsqu'elle est maîtrisée, cette fonctionnalité est très efficace et nous fait gagner un temps précieux dans le process d'intégration du code.
 
@@ -92,14 +94,19 @@ L'exemple ci-dessous indique le paramétrage adéquat pour un formatage automati
 Le code ne peut être envoyé sur le repo distant sans avoir été formaté au préalable.
 
 ## Tests dynamiques 
-A ce jour, nous n'avons pas encore mis des tests en place. En revanche, nous projettons d'effectuer en premier lieu des tests unitaires sur la partie Front. L’avantage des tests unitaires est qu’ils sont rapides à écrire et à exécuter. La technologie ReactNative nous impose d'utiliser un outil adapté. Nous avons séléctionné Jest, le framework le plus utilisé en Javascript actuellement.
+A ce jour, nous n'avons pas encore mis des tests en place. En revanche, nous projettons d'effectuer en premier lieu des tests unitaires sur la partie Front. L’avantage des tests unitaires est qu’ils sont rapides à écrire et à exécuter. La technologie ReactNative nous impose d'utiliser un outil adapté. Nous avons séléctionné Jest, le framework le plus utilisé en Javascript actuellement. 
 
 Nous restons vigilent sur l'emploi des 'Describe'. Ce qui nous garantit un gain de temps dans la détection et résolution (ou fix) des erreurs. 
 Ci-dessous, un exemple de test unitaire effectué lors de notre projet : JEST-EXPO ?
 [SCREENSHOT EXEMPLE TEST UNIT] 
 Explications
 
-Les tests end to end (ou e2e) seront le second moyen de tester notre application. Nous allons utiliser 
+La mise en place de test de bout en bout (ou end to end) va nous permettre de tester chaque fonctionnalité de notre application.
+Comparaison de Cypress, Detox, Vitest .. + Choix 
+
+[SCREENSHOT EXEMPLE DE TEST E2E]
+
+Enfin, l'analyse de la code coverage pourrait avoir un rôle important dans le développement de notre application. Or à ce stade, il aurait peu d'intérêt puisque le pourcentage de couverture retournerait un résultat inférieur à 1%.
 
 A l'aide de tests : TU + TI, lib de test (x2, e2e)
 Env de Test : BD de test + .env
@@ -112,13 +119,16 @@ Env de Test : BD de test + .env
 Valeur de couverture : fichier.coverage (JEST ?)
 
 # C3 : 
-Automatisation de C2 : GHA (yml)
+Toutes les étapes vue précédemment vont devenir automatique dans le processus d'intégration (ou CI) grâce à Github Actions. Le choix de cet outil s'est fait naturellement car il nous permet d'utiliser une nouvelle fonctionnalité de Github.
+
+Le configuration du fichier .yml va permettre d'automatiser toutes les étapes de compilation, de vérification de la qualité du code, de test et de packaging. Les étapes (ou jobs) seront lancées successivement lors de chaque nouveau push. Elles définissent un workflow :
+[SCREENSHOT .YML]
 ● Configurer l’intégration continue, avec Github Actions ou Gitlab CI/CD
 ● Paramétrer les phases d'exécution des tests dans l’environnement de test à chaque push (sur la
 branche concernée)
 
 # C4 :
-Mise en place et uttilisation de Docker localement avec des configurations d'environnement différents -> Docker + matrice/.env+ définition de préprod
+Mise en place et utilisation de Docker localement avec des configurations d'environnement différents -> Docker + matrice/.env+ définition de préprod
 ● À chaque push (sur la branche concernée) paramétrer les phases de build pour un environnement de
 pré-production
 ● Paramétrer les phases de livraison des builds en environnement de pré-production
