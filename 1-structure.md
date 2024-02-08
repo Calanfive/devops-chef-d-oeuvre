@@ -56,6 +56,10 @@ Ci dessous, un exemple de l'architecture de notre travail :
 [SCREENSHOT GITFLOW GRAPH]
 
 Notre groupe étant composé de trois développeurs juniors, nous sommes en constants progrès sur le .... entre les différentes tâches à effectuer. 
+Gitub nous permet d'utiliser la méthode Kanban. Les tickets y sont déposés par priorité après concertation lors de réunions. Chaque ticket est attribué à une développeur et les statuts sont mis à jour après validation des PR. 
+[SCREENSHOT KANBAN GITHUB]
+La progression est fluide et la mise en place de sprints courts nous garantit une bonne réactivité face aux difficultés rencontrées
+
 Cet environnement multi-contributeurs ne pourrait correctement fonctionner sans la mise en place de Pull Request. Ici encore l'outil Github propose un système de validation (ou code review). Lorsqu'elle est maîtrisée, cette fonctionnalité est très efficace et nous fait gagner un temps précieux dans le process d'intégration du code.
 
 Nous évoluons avec la configuration suivante :
@@ -63,16 +67,43 @@ Nous évoluons avec la configuration suivante :
 C'est-à-dire que la sauvegarde ne peut être publiée sur la branche develop uniquement si deux parties ont révisé et validé mon code.
 [SCREENSHOT VALIDATION PR)
 
-● Git en ligne de commande
-● Respect d’un gitflow
-● Utilisation de Github ou Gitlab par exemple
+Dans le cadre de l'intégration continue, cette action sera le déclencheur d'une série de tests automatisés : les tests statiques et dynamiques.
 
-C2 : 
+# C2 : 
+## Analyse statique
+
+Etape incontournable d'une démarche qualité, l'analyse statique du code passe par l'utilisation d'un Linter. Il s'agit d'un outil d'analyse statique de code source. Il sert à détecter :
+- des erreurs (très utile sur des langages interprétés comme JavaScript qui n'ont pas de phase de compilation) ;
+- des problèmes de syntaxe et de non-respect de style (tabulation vs espaces, indentation, etc.).
+
+Nous avons choisi l'outil ESLint avec la configuration suivante :
+[SCREENSHOT CONFIG ESLINT]
+Explications
+Une fois de plus, les règles appliqués ont été décidés en groupe afin que chacun puisse évoquer ses préférences.
+
+Nous avons également mis en place un formateur afin d'assurer la cohérence du formatage du code et d'automatiser ce processus. Alors qu'ESLint sera charger de détecter les erreurs, le formateur lui va avoir la capacité de les corriger.
+
+Pour ce faire, il suffit de configurer des règles dans le fichier .prettierrc comme suit : [SCREENSHOT CONFIG PRETTIER] 
+
+Dans le cas de conflits entre ESLint et Prettier, la configuration par ce fichier donnera automatiquement la priorité au Prettier sur le linter.
+Ces outils offrent un choix d'utilisation personnalisé grâce à leurs extensions accessibles sur VScode.
+L'exemple ci-dessous indique le paramétrage adéquat pour un formatage automatique lors du commit.
+[SCREENSHOT CONFIG VSCODE]
+Le code ne peut être envoyé sur le repo distant sans avoir été formaté au préalable.
+
+## Tests dynamiques 
+A ce jour, nous n'avons pas encore mis des tests en place. En revanche, nous projettons d'effectuer en premier lieu des tests unitaires sur la partie Front. L’avantage des tests unitaires est qu’ils sont rapides à écrire et à exécuter. La technologie ReactNative nous impose d'utiliser un outil adapté. Nous avons séléctionné Jest, le framework le plus utilisé en Javascript actuellement.
+
+Nous restons vigilent sur l'emploi des 'Describe'. Ce qui nous garantit un gain de temps dans la détection et résolution (ou fix) des erreurs. 
+Ci-dessous, un exemple de test unitaire effectué lors de notre projet : JEST-EXPO ?
+[SCREENSHOT EXEMPLE TEST UNIT] 
+Explications
+
+Les tests end to end (ou e2e) seront le second moyen de tester notre application. Nous allons utiliser 
+
 A l'aide de tests : TU + TI, lib de test (x2, e2e)
-Outils d'analyse statique : linter
 Env de Test : BD de test + .env
-● Utilisation d’un linter (natif IDE ou externe)
-● Environnement de test (virtuel ou conteneurisé par exemple) Playwright
+● Environnement de test (virtuel ou conteneurisé par exemple) 
 ● Au moins des tests unitaires d’intégrés (pas de minimum de coverage)
 ● Au moins des tests fonctionnels d’intégrés (pas de minimum de coverage)
 ● Savoir récupérer la valeur de la couverture du code par les tests
@@ -80,32 +111,32 @@ Env de Test : BD de test + .env
 ● Interpréter les résultats et les erreurs
 Valeur de couverture : fichier.coverage (JEST ?)
 
-C3 : 
+# C3 : 
 Automatisation de C2 : GHA (yml)
 ● Configurer l’intégration continue, avec Github Actions ou Gitlab CI/CD
 ● Paramétrer les phases d'exécution des tests dans l’environnement de test à chaque push (sur la
 branche concernée)
 
-C4 :
+# C4 :
 Mise en place et uttilisation de Docker localement avec des configurations d'environnement différents -> Docker + matrice/.env+ définition de préprod
 ● À chaque push (sur la branche concernée) paramétrer les phases de build pour un environnement de
 pré-production
 ● Paramétrer les phases de livraison des builds en environnement de pré-production
 
-C5 :
+# C5 :
 Microservice + Duplication des chaînes d'outils CI par services + lib associées
 ● Décomposer une application monolithique en plusieurs composants et services
 ● Utiliser un service de conteneurisation pour tous les environnements : dev, test, prod, etc
 ● Adapter toute la chaîne DevOps à cette nouveauté
 
-C6 : Veille techno + monitoring (métier SRE?) 	
+# C6 : Veille techno + monitoring (métier SRE?) 	
 Benchmark
 ● définir des objectifs à sa veille ou encore des thématiques de veille
 ● planifier les temps de veille : durée, fréquence
 ● organiser sa collecte d’information : outils de curation, outils de sauvegarde, etc
 ● organiser le partage voir la diffusion des informations pertinantes
 
-C7 : Accompagner les collaborateurs au sein de l’équipe projet dans la sensibilisation et l’acculturation des méthodes d’organisation et de production DevOps de manière à optimiser le cycle de livraison d’un projet
+# C7 : Accompagner les collaborateurs au sein de l’équipe projet dans la sensibilisation et l’acculturation des méthodes d’organisation et de production DevOps de manière à optimiser le cycle de livraison d’un projet
 ● expliquer et partager la culture DevOps
 ● expliquer et partager la méthode DevOps : les rôles, les outils, les leviers, etc
 ● analyser un processus Devops
@@ -118,3 +149,6 @@ Problèmes rencontrés - gestion des conflits (github)
 (https://betterprogramming.pub/comparing-the-top-three-style-guides-and-setting-them-up-with-eslint-98ea0d2fc5b7)
 (https://blog.codacy.com/what-is-a-linter)
 (https://www.blogdumoderateur.com/tools/tech/versioning/)
+Linter comparaison : (https://www.sitepoint.com/comparison-javascript-linting-tools/)
+Documentation JEST EXPO : (https://docs.expo.dev/develop/unit-testing/)
+
