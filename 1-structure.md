@@ -162,12 +162,12 @@ Après comparaison des différentes technologies, nous avons consulté plusieurs
 
 Il nous a fallu également faire de la veille sur les outils destinés aux tests. Nous souhaitions utiliser les moyens les plus efficaces et à jour pour éviter les bugs et perte de temps contraignantes. Là encore, les classements d'utilisation des professionnels et la facilité d'utilisation nous a orienté vers les documentations de JEST et ::::::. La mise en place de ces outils m'a permis de mieux comprendre la chronologie des tests.
 
-Sur la partie Front, j'ai été en charge:
+Sur la partie Front, j'ai été en charge :
 - de la configuration de l'espace de travail (installation Expo, Typescript, ReactNative)
 - du paramétrage des outils d'analyse statiques (ESLint, Prettier)
 Afin de garantir une compréhension de mon travail à mes collègues, j'inscrivais les liens des tutos et documentation suivis dans le repo adéquat sur Github.
 [SCREENSHOT DEPO]
-
+La configuration des outils statiques nous a permis d'automatiser la qualité du code pendant l'intégration continue. Grâce au paramétrage du fichier .yml, nous n'aurons plus à nous soucis de ces outils.
 Une fois les outils sélectionnés, les tickets ont principalement tourné autour du développement de l'application. 
 
 Sur le plan personnel, je m'abonne régulièrement à des comptes LinkedIn. J'en ai ressenti le besoin pour faciliter l'assimilation de nouvelles connaissances durant l'année. 
