@@ -13,9 +13,7 @@ Les mises en prod (manuel sur la base des images docker produites)
 Tout ça en une chaîne d'outils automatisé, mais le devops est aussi :
 - pratiques entre collabs (XP PROJET : kamban, sprint, PR code review, choix techniques)
 
-
 # Sommaire
-
 # Contexte
 
 # Introduction au DevOps: 
@@ -30,9 +28,32 @@ Dans le cadre de ma formation, j'ai eu l'occasion de travailler sur -PROJET-DESC
 
 Dans le cadre de notre formation CDA, nous développons un projet de groupe appelé GrenoTour. Nous avons souhaité un
 
-# C1 : 
-## Versionnement
+Dans le cadre de notre année de formation, nous avons deux examens à présenter : le titre CDA et la certification DevOps. Pour cela, nous avons réalisé un projet fil rouge qui nous a permis de mettre en lumière, les compétences qui ont fait de nous des développeurs et concepteurs d’applications mais également d’utiliser les outils et la méthodologie DevOps sur nos projets.
 
+C’est pour ce dernier point que s’inscrit ce rapport : préciser les logiques DevOps que nous avons mis en œuvre sur le projet chef d’œuvre et en quoi cela nous à aider.
+
+Le projet a débuté tôt dans l’année et nous n’avion pas encore tous les outils pour mener à bien ce projet. Mais à la lecture de ce dossier, mon objectif est de vous démontrer que je possède la connaissance générale et les capacités, de mettre en œuvre une démarche professionnelle et une utilisation judicieuse des outils DevOps.
+
+La problématique choisie est ……
+Nous avons utilisé une stack technologique cohérente aux enseignements de cette année et avons spécifiquement choisi d’utiliser ……
+Au moment de l’écriture de ce rapport nous avons pu avancé sur … et estimons la réalisation du projet à hauteur de …. %.
+Néanmoins, nous avons mis le point sur les outils et méthodes de travail qui nous ont permis de répondre au mieux à vos attentes et à la présentation orale qui se présentera deux semaines plus tard.
+
+Mon projet chef d’œuvre a été réalisé avec …. Il/elle a apporté beaucoup sur la partie ….
+De mon côté, j’ai préféré …. Et nous avons fait attention à bien rester synchronisés pour valider ensemble les différents points du référentiel.
+
+Je commencerai par vous présenter 
+Puis 
+Et enfin, 
+
+Pour chacune de ces étapes, je présenterai :
+le contexte et l’objectif principal de ce moment charnière
+le cheminent de pensé qui m’a amené à sélectionner une solution
+la réalisation de cette solution
+le bilan après mise en place
+
+# 1 - Première expérience de groupe
+C1 / C2 / C3 / C7
 Avant tout, ...
 
 Les outils de versionnement les plus utilisés sont :
@@ -69,11 +90,15 @@ Nous évoluons avec la configuration suivante :
 C'est-à-dire que la sauvegarde ne peut être publiée sur la branche develop uniquement si deux parties ont révisé et validé mon code.
 [SCREENSHOT VALIDATION PR)
 
+
+- Mise en place d'un kanban sur Github et création d'un backlog avec le plus de tâches possibles
+définition des règles des sprints (durée, dailies, rétrospectives, etc...)
+(Agile, Sprints, retro planning, Kanban, Gantt, les métiers du devops et des entreprises 
+digitales (QA, PO, Scrum master, etc...), documentation de lib UI,)
+
 Dans le cadre de l'intégration continue, cette action sera le déclencheur d'une série de tests automatisés : les tests statiques et dynamiques.
 
-# C2 : 
-## Analyse statique
-
+Analyse statique
 Etape incontournable d'une démarche qualité, l'analyse statique du code passe par l'utilisation d'un Linter. Il s'agit d'un outil d'analyse statique de code source. Il sert à détecter :
 - des erreurs (très utile sur des langages interprétés comme JavaScript qui n'ont pas de phase de compilation) ;
 - des problèmes de syntaxe et de non-respect de style (tabulation vs espaces, indentation, etc.).
@@ -93,7 +118,7 @@ L'exemple ci-dessous indique le paramétrage adéquat pour un formatage automati
 [SCREENSHOT CONFIG VSCODE]
 Le code ne peut être envoyé sur le repo distant sans avoir été formaté au préalable.
 
-## Tests dynamiques 
+Tests dynamiques 
 A ce jour, nous n'avons pas encore mis des tests en place. En revanche, nous projettons d'effectuer en premier lieu des tests unitaires sur la partie Front. L’avantage des tests unitaires est qu’ils sont rapides à écrire et à exécuter. La technologie ReactNative nous impose d'utiliser un outil adapté. Nous avons séléctionné Jest, le framework le plus utilisé en Javascript actuellement. 
 
 Nous restons vigilent sur l'emploi des 'Describe'. Ce qui nous garantit un gain de temps dans la détection et résolution (ou fix) des erreurs. 
@@ -103,45 +128,20 @@ Explications
 
 La mise en place de test de bout en bout (ou end to end) va nous permettre de tester chaque fonctionnalité de notre application.
 Comparaison de Cypress, Detox, Vitest .. + Choix 
-
 [SCREENSHOT EXEMPLE DE TEST E2E]
-
 Enfin, l'analyse de la code coverage pourrait avoir un rôle important dans le développement de notre application. Or à ce stade, il aurait peu d'intérêt puisque le pourcentage de couverture retournerait un résultat inférieur à 1%.
-
-A l'aide de tests : TU + TI, lib de test (x2, e2e)
-Env de Test : BD de test + .env
-● Environnement de test (virtuel ou conteneurisé par exemple) 
-● Au moins des tests unitaires d’intégrés (pas de minimum de coverage)
-● Au moins des tests fonctionnels d’intégrés (pas de minimum de coverage)
-● Savoir récupérer la valeur de la couverture du code par les tests
-● Exécuter les tests Tests statiques / Tests dynamiques
-● Interpréter les résultats et les erreurs
-Valeur de couverture : fichier.coverage (JEST ?)
-
-# C3 : 
+ 
 Toutes les étapes vue précédemment vont devenir automatique dans le processus d'intégration (ou CI) grâce à Github Actions. Le choix de cet outil s'est fait naturellement car il nous permet d'utiliser une nouvelle fonctionnalité de Github.
 
 Le configuration du fichier .yml va permettre d'automatiser toutes les étapes de compilation, de vérification de la qualité du code, de test et de packaging. Les étapes (ou jobs) seront lancées successivement lors de chaque nouveau push. Elles définissent un workflow :
 [SCREENSHOT .YML]
-
-Config Lint dans yml ?
-● Configurer l’intégration continue, avec Github Actions ou Gitlab CI/CD
 ● Paramétrer les phases d'exécution des tests dans l’environnement de test à chaque push (sur la
 branche concernée)
 
-# C4 :
-Mise en place et utilisation de Docker localement avec des configurations d'environnement différents -> Docker + matrice/.env+ définition de préprod
-● À chaque push (sur la branche concernée) paramétrer les phases de build pour un environnement de
-pré-production
-● Paramétrer les phases de livraison des builds en environnement de pré-production
+# 2 - MCD et gestion de conflits
+C1 / C6 / C7
 
-# C5 :
-Microservice + Duplication des chaînes d'outils CI par services + lib associées
-● Décomposer une application monolithique en plusieurs composants et services
-● Utiliser un service de conteneurisation pour tous les environnements : dev, test, prod, etc
-● Adapter toute la chaîne DevOps à cette nouveauté
-
-# C6	
+C1 ++
 Nous avons dû effectuer des veilles afin de choisir les technologies adaptées à notre projet. 
 Nos connaissances se basaient uniquement sur les cours dispensés cette année. 
 Au départ, les recherches étaient fixées par thème sur un ticket: 
@@ -160,7 +160,7 @@ Après comparaison des différentes technologies, nous avons consulté plusieurs
 - Typescript (doc)
 - Eslint / Prettier (doc)
 
-Il nous a fallu également faire de la veille sur les outils destinés aux tests. Nous souhaitions utiliser les moyens les plus efficaces et à jour pour éviter les bugs et perte de temps contraignantes. Là encore, les classements d'utilisation des professionnels et la facilité d'utilisation nous a orienté vers les documentations de JEST et ::::::. La mise en place de ces outils m'a permis de mieux comprendre la chronologie des tests.
+Il nous a fallu également faire de la veille sur les outils destinés aux tests. Nous souhaitions utiliser les moyens les plus efficaces et à jour pour éviter les bugs et perte de temps contraignantes. Là encore, les classements d'utilisation des professionnels et la facilité d'utilisation nous a orienté vers les documentations de JEST et ::::::. La mise en place de ces outils m'a permis de mieux comprendre la chronologie et la granularité des tests.
 
 Sur la partie Front, j'ai été en charge :
 - de la configuration de l'espace de travail (installation Expo, Typescript, ReactNative)
@@ -183,7 +183,24 @@ Au besoin, Github offre la possibilité de revoir le travail accompli via le
 [SCREESHOT TICKETS FINIS]
 Une fois validés, les tickets sont automatiquement classés dans la colonne correspondante au sein de notre Kanban.
 
-J'aborderai ma place au sein de ce groupe de travail dans la partie suivante : C7.
+
+# Documentation et déploiement
+C4 / C6 / C7
+Storybook = lorsque je push, je mets en ligne ma documentation (comme vercel mais avec React Native)
+Je pensais pouvoir utiliser Vercel mais pas compatible. Pour ce faire, j'ai dû effectuer de la veille sur ... 
+Cela permet la publication et la mise à disposition de documentations pour les autres particpants du projet.
+
+C4 :
+Mise en place et utilisation de Docker localement avec des configurations d'environnement différents -> Docker + matrice/.env+ définition de préprod
+● À chaque push (sur la branche concernée) paramétrer les phases de build pour un environnement de
+pré-production
+● Paramétrer les phases de livraison des builds en environnement de pré-production
+
+# C5 :
+Microservice + Duplication des chaînes d'outils CI par services + lib associées
+● Décomposer une application monolithique en plusieurs composants et services
+● Utiliser un service de conteneurisation pour tous les environnements : dev, test, prod, etc
+● Adapter toute la chaîne DevOps à cette nouveauté
 
 # C7
 ● expliquer et partager la culture DevOps
@@ -192,7 +209,7 @@ J'aborderai ma place au sein de ce groupe de travail dans la partie suivante : C
 ● préconiser des améliorations à un processus DevOps
 Problèmes rencontrés - gestion des conflits (github)
 Dev ops comme méthode de travail
-- Mise en place d'un kanban sur Githubet création d'un backlog avec le plus de tâches possibles
+- Mise en place d'un kanban sur Github et création d'un backlog avec le plus de tâches possibles
 définition des règles des sprints (durée, dailies, rétrospectives, etc...)
 (Agile, Sprints, retro planning, Kanban, Gantt, les métiers du devops et des entreprises 
 digitales (QA, PO, Scrum master, etc...), documentation de lib UI,)
