@@ -123,6 +123,8 @@ Toutes les étapes vue précédemment vont devenir automatique dans le processus
 
 Le configuration du fichier .yml va permettre d'automatiser toutes les étapes de compilation, de vérification de la qualité du code, de test et de packaging. Les étapes (ou jobs) seront lancées successivement lors de chaque nouveau push. Elles définissent un workflow :
 [SCREENSHOT .YML]
+
+Config Lint dans yml ?
 ● Configurer l’intégration continue, avec Github Actions ou Gitlab CI/CD
 ● Paramétrer les phases d'exécution des tests dans l’environnement de test à chaque push (sur la
 branche concernée)
@@ -139,20 +141,61 @@ Microservice + Duplication des chaînes d'outils CI par services + lib associée
 ● Utiliser un service de conteneurisation pour tous les environnements : dev, test, prod, etc
 ● Adapter toute la chaîne DevOps à cette nouveauté
 
-# C6 : Veille techno + monitoring (métier SRE?) 	
-Benchmark
-● définir des objectifs à sa veille ou encore des thématiques de veille
-● planifier les temps de veille : durée, fréquence
-● organiser sa collecte d’information : outils de curation, outils de sauvegarde, etc
-● organiser le partage voir la diffusion des informations pertinantes
+# C6	
+Nous avons dû effectuer des veilles afin de choisir les technologies adaptées à notre projet. 
+Nos connaissances se basaient uniquement sur les cours dispensés cette année. 
+Au départ, les recherches étaient fixées par thème sur un ticket: 
+[SCREENSHOT] 
+Mais du fait d'un temps de traitement anormalement long, nous avons décidé de travailler à plusieurs sur ces themes. 
+Nous avons créé un dossier Github (ou repository) dédié à la phase conception du projet et l'apport de nouvelles sources :
+[SCREENSHOT]
+L'ensemble de la documentation a été rédigé en Markdown (.md).
 
-# C7 : Accompagner les collaborateurs au sein de l’équipe projet dans la sensibilisation et l’acculturation des méthodes d’organisation et de production DevOps de manière à optimiser le cycle de livraison d’un projet
+Après comparaison des différentes technologies, nous avons consulté plusieurs sites et documentations officielles pour nous aider dans la compréhension de nouveaux outils :
+- Stack Overflow
+- ReactNative (doc)
+- Reddit
+- YouTube
+- Expo (doc)
+- Typescript (doc)
+- Eslint / Prettier (doc)
+
+Il nous a fallu également faire de la veille sur les outils destinés aux tests. Nous souhaitions utiliser les moyens les plus efficaces et à jour pour éviter les bugs et perte de temps contraignantes. Là encore, les classements d'utilisation des professionnels et la facilité d'utilisation nous a orienté vers les documentations de JEST et ::::::. La mise en place de ces outils m'a permis de mieux comprendre la chronologie des tests.
+
+Sur la partie Front, j'ai été en charge:
+- de la configuration de l'espace de travail (installation Expo, Typescript, ReactNative)
+- du paramétrage des outils d'analyse statiques (ESLint, Prettier)
+Afin de garantir une compréhension de mon travail à mes collègues, j'inscrivais les liens des tutos et documentation suivis dans le repo adéquat sur Github.
+[SCREENSHOT DEPO]
+
+Une fois les outils sélectionnés, les tickets ont principalement tourné autour du développement de l'application. 
+
+Sur le plan personnel, je m'abonne régulièrement à des comptes LinkedIn. J'en ai ressenti le besoin pour faciliter l'assimilation de nouvelles connaissances durant l'année. 
+Ci dessous, un compte que j'affectionne tout particulièrement grâce à des schémas clairs et simples :
+[SCREENSHOT LINKEDIN IND]
+Il traite de l'ensemble de la chaîne de développement et m'éclaire ainsi sur des points dont je n'avais pas connaissance. Une curiosité en entraîne une autre.
+
+Enfin, en vu de ce rendu, j'ai tenu à jour un journal de bord du projet pour noter: 
+- mes travaux : 
+- mes ressentis
+- les difficultés rencontrés et les solutions mis en place
+Au besoin, Github offre la possibilité de revoir le travail accompli via le
+[SCREESHOT TICKETS FINIS]
+Une fois validés, les tickets sont automatiquement classés dans la colonne correspondante au sein de notre Kanban.
+
+J'aborderai ma place au sein de ce groupe de travail dans la partie suivante : C7.
+
+# C7
 ● expliquer et partager la culture DevOps
 ● expliquer et partager la méthode DevOps : les rôles, les outils, les leviers, etc
 ● analyser un processus Devops
 ● préconiser des améliorations à un processus DevOps
 Problèmes rencontrés - gestion des conflits (github)
-  
+Dev ops comme méthode de travail
+- Mise en place d'un kanban sur Githubet création d'un backlog avec le plus de tâches possibles
+définition des règles des sprints (durée, dailies, rétrospectives, etc...)
+(Agile, Sprints, retro planning, Kanban, Gantt, les métiers du devops et des entreprises 
+digitales (QA, PO, Scrum master, etc...), documentation de lib UI,)
 
 # Source 
 (https://github.com/Calanfive/Documentation/tree/main/DevOps)
