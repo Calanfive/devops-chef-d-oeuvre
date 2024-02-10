@@ -26,7 +26,7 @@ Histoire d'internet et des datas (explosion du nb de données) / besoins industr
 Aujourd'hui, plus une exception mais la règle, d'où l'enjeu pour les devs et le monde de la tech, d'apprendre ces outils et cette culture. (d'où le passage de ma certif).
 Dans le cadre de ma formation, j'ai eu l'occasion de travailler sur -PROJET-DESCRIPTION GENERALE- et besoin d'apprendre le DevOps.
 
-Dans le cadre de notre formation CDA, nous développons un projet de groupe appelé GrenoTour. Nous avons souhaité un
+
 
 Dans le cadre de notre année de formation, nous avons deux examens à présenter : le titre CDA et la certification DevOps. Pour cela, nous avons réalisé un projet fil rouge qui nous a permis de mettre en lumière, les compétences qui ont fait de nous des développeurs et concepteurs d’applications mais également d’utiliser les outils et la méthodologie DevOps sur nos projets.
 
@@ -35,27 +35,30 @@ C’est pour ce dernier point que s’inscrit ce rapport : préciser les logiqu
 Le projet a débuté tôt dans l’année et nous n’avion pas encore tous les outils pour mener à bien ce projet. Mais à la lecture de ce dossier, mon objectif est de vous démontrer que je possède la connaissance générale et les capacités, de mettre en œuvre une démarche professionnelle et une utilisation judicieuse des outils DevOps.
 
 La problématique choisie est ……
-Nous avons utilisé une stack technologique cohérente aux enseignements de cette année et avons spécifiquement choisi d’utiliser ……
-Au moment de l’écriture de ce rapport nous avons pu avancé sur … et estimons la réalisation du projet à hauteur de …. %.
+Nous avons utilisé une stack technologique cohérente aux enseignements de cette année et avons spécifiquement choisi d’utiliser ReactNative.
+Au moment de l’écriture de ce rapport, nous estimons la réalisation du projet à hauteur de 90. %.
 Néanmoins, nous avons mis le point sur les outils et méthodes de travail qui nous ont permis de répondre au mieux à vos attentes et à la présentation orale qui se présentera deux semaines plus tard.
 
-Mon projet chef d’œuvre a été réalisé avec …. Il/elle a apporté beaucoup sur la partie ….
-De mon côté, j’ai préféré …. Et nous avons fait attention à bien rester synchronisés pour valider ensemble les différents points du référentiel.
+Dans le cadre de notre projet de fin d'étude du titre Concepteur Developpeur d'Application, nous avons formé un groupe de travail composé de Karim Sekri, Aymeric Rambaud et Camille Le Lan, où chacun a réussi à trouver sa place. Nous avons fait attention à bien rester synchronisés pour valider ensemble les différents points du référentiel.
 
-Je commencerai par vous présenter 
-Puis 
-Et enfin, 
+Dans un monde ultraconnectée, où gagner du temps est la priorité de tous, il nous a paru intéressant de travailler sur un projet d'application de tourisme 100% mobile.
+Cet outil s'adresse aux visiteurs de la ville de Grenoble et permet la génération d'itinéraires personnalisables en fonction des centres d'intérêt de chacun. Le gain de temps est certain. Après quelques clics, vous n'aurez plus qu'à suivre l'itinéraire choisie pendant une durée voulue.
+
+Ce dossier comprendra trois points : 
+- notre premier projet en groupe
+- qualité, tests et intégration continue
+- documentation et mise en place de veille 
 
 Pour chacune de ces étapes, je présenterai :
-le contexte et l’objectif principal de ce moment charnière
-le cheminent de pensé qui m’a amené à sélectionner une solution
-la réalisation de cette solution
-le bilan après mise en place
+- le contexte et l’objectif principal de ce moment charnière
+- le cheminent de pensé qui m’a amené à sélectionner une solution
+- la réalisation de cette solution
+- le bilan après mise en place
 
 # 1 - Première expérience de groupe
 C1 / C2 / C3 / C7
-Avant tout, ...
 
+Avant tout, nous avons dû choisir un outil nous permettant de travailler ensemble.
 Les outils de versionnement les plus utilisés sont :
 - Github
 - Gitlab
@@ -63,30 +66,49 @@ Les outils de versionnement les plus utilisés sont :
 - AWS CodeCommit
 - Google Cloud Source Repositories
 
-Le code peut être géré et stocké de façon collaborative. Ces outils permettent également la plannification et une approche orientée "Continuous Intergration" et "Continuous Delivery" (CI/CD) où un gitflow structure l'organisation et les rôles de chacun pour un rendu toujours plus efficace.
+Le code y est géré et stocké de façon collaborative. Ces outils permettent également la plannification et une approche orientée "Continuous Intergration" et "Continuous Delivery" (CI/CD) où un gitflow structure l'organisation et les rôles de chacun.
 
 Etant donné que nous avons travaillé toute l'année sur Github, nous avons fait le choix de continuer d'expoiter cet outil de versionnement. 
 [LOGO GITHUB]
 
-## Fonctionnement du gitflow
+Fonctionnement initial de notre gitflow
 Pour notre projet, nous choisissons de créer une branche locale pour chaque nouvelle feature ou correctif à effectuer comme l'indique l'exemple ci-dessous :
 [SCREENSHOT MULTIBRANCH GIT]
 Définie de façon unanime, cette convention de nommage nous permet de vite nous y retrouver sur le plan organisationnel. 
 
-Une fois travail du développeur accompli et fonctionnel, il ajoute les modifications accomplies à son dépot Git local avec un commit avant des envoyer (push) vers le serveur distant : Github.
+Une fois le travail du développeur accompli et fonctionnel, il ajoute les modifications accomplies à son dépot Git local avec un commit avant des envoyer (push) vers le serveur distant : Github.
 La sauvegarde sera envoyer une branche develop. Nous avons préféré créer une branche de travail pour garder la branche principal (ou main) destinée au déploiement final de l'application.
 Ci dessous, un exemple de l'architecture de notre travail :
 [SCREENSHOT GITFLOW GRAPH]
 
-Notre groupe étant composé de trois développeurs juniors, nous sommes en constants progrès sur le .... entre les différentes tâches à effectuer. 
-Gitub nous permet d'utiliser la méthode Kanban. Les tickets y sont déposés par priorité après concertation lors de réunions. Chaque ticket est attribué à une développeur et les statuts sont mis à jour après validation des PR. 
-[SCREENSHOT KANBAN GITHUB]
-La progression est fluide et la mise en place de sprints courts nous garantit une bonne réactivité face aux difficultés rencontrées.
-
-Cet environnement multi-contributeurs ne pourrait correctement fonctionner sans la mise en place de Pull Request. Ici encore l'outil Github propose un système de validation (ou code review). Lorsqu'elle est maîtrisée, cette fonctionnalité est très efficace et nous fait gagner un temps précieux dans le process d'intégration du code.
+Gitub nous permet d'utiliser la méthode Kanban. Les tickets y sont déposés par priorité après concertation lors de réunions. Chaque ticket est attribué à un développeur et leur statut sont mis à jour après validation de la Pull Request (ou PR). Ici encore l'outil Github propose un système de validation (ou code review) :
+[SCREENSHOT Kanban GITHUB]
+La colonne backlog représente la colonne de tickets à prendre (sans urgence).
 
 Nous évoluons avec la configuration suivante :
 [SCEENSHOT CONFIG PR GITHUB)
+
+Aucun des membres de notre équipe n'avait participé au développement d'application en groupe avant. Nous avons donc été confrontés à certains obstacles durant notre progression. Les situations à traiter portait sur :
+- la réalisation du schéma de bases de données
+- l'utilisation de git
+- une mauvaise attribution des tickets à traiter
+
+En effet, alors Karim se chargeait d'effectuer le schéma de base de données, Aymeric et moi-même étions affecté à d'autres tickets. Or après deux jours, il était dans l'impasse et avait peu avancé sur le sujet. 
+Ce contre temps nous a forcé à nous réunir au milieu d'un sprint initialement fixé à 5 jours. 
+Le système de PR
+Les Merges
+Devant ces difficultés, nous avons établi que: 
+- des tickets étaient trop conséquents
+- nous étions chacun sur les mêmes sujets depuis 2 jours
+
+Suite à cette réunion, nous avons décider de :
+- allouer un temps de veille groupé autour de la création d'un schéma de base de données et effectuer ce ticket ensemble
+- décomposer les tâches importantes en tickets plus petits
+- veiller à ce que chacun de nous participe bien à toutes les parties du projet (front, back, gestion de projet)
+- et enfin, diviser par 2 la durée des sprints
+
+La progression est devenue plus fluide et la mise en place de sprints courts nous garantit une bonne réactivité face aux nouvelles difficultés rencontrées. 
+
 C'est-à-dire que la sauvegarde ne peut être publiée sur la branche develop uniquement si deux parties ont révisé et validé mon code.
 [SCREENSHOT VALIDATION PR)
 
@@ -96,12 +118,18 @@ définition des règles des sprints (durée, dailies, rétrospectives, etc...)
 (Agile, Sprints, retro planning, Kanban, Gantt, les métiers du devops et des entreprises 
 digitales (QA, PO, Scrum master, etc...), documentation de lib UI,)
 
+
+
+
+
+
+
 Dans le cadre de l'intégration continue, cette action sera le déclencheur d'une série de tests automatisés : les tests statiques et dynamiques.
 
 Analyse statique
 Etape incontournable d'une démarche qualité, l'analyse statique du code passe par l'utilisation d'un Linter. Il s'agit d'un outil d'analyse statique de code source. Il sert à détecter :
 - des erreurs (très utile sur des langages interprétés comme JavaScript qui n'ont pas de phase de compilation) ;
-- des problèmes de syntaxe et de non-respect de style (tabulation vs espaces, indentation, etc.).
+- des problèmes de syntaxe et de non-respect de style (tabulation vs espaces, indentation, etc.)
 
 Nous avons choisi l'outil ESLint avec la configuration suivante :
 [SCREENSHOT CONFIG ESLINT]
@@ -138,7 +166,7 @@ Le configuration du fichier .yml va permettre d'automatiser toutes les étapes d
 ● Paramétrer les phases d'exécution des tests dans l’environnement de test à chaque push (sur la
 branche concernée)
 
-# 2 - MCD et gestion de conflits
+# 2 - Qualité, tests et intégration continue
 C1 / C6 / C7
 
 C1 ++
