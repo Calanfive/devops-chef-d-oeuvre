@@ -58,116 +58,12 @@ Pour chacune de ces étapes, je présenterai :
 # 1 - Première expérience de groupe
 C1 / C2 / C3 / C7
 
-Avant tout, nous avons dû choisir un outil nous permettant de travailler ensemble.
-Les outils de versionnement les plus utilisés sont :
-- Github
-- Gitlab
-- Bitbucket
-- AWS CodeCommit
-- Google Cloud Source Repositories
-
-Le code y est géré et stocké de façon collaborative. Ces outils permettent également la plannification et une approche orientée "Continuous Intergration" et "Continuous Delivery" (CI/CD) où un gitflow structure l'organisation et les rôles de chacun.
-
-Etant donné que nous avons travaillé toute l'année sur Github, nous avons fait le choix de continuer d'expoiter cet outil de versionnement. 
-[LOGO GITHUB]
-
-Fonctionnement initial de notre gitflow
-Pour notre projet, nous choisissons de créer une branche locale pour chaque nouvelle feature ou correctif à effectuer comme l'indique l'exemple ci-dessous :
-[SCREENSHOT MULTIBRANCH GIT]
-Définie de façon unanime, cette convention de nommage nous permet de vite nous y retrouver sur le plan organisationnel. 
-
-Une fois le travail du développeur accompli et fonctionnel, il ajoute les modifications accomplies à son dépot Git local avec un commit avant des envoyer (push) vers le serveur distant : Github.
-La sauvegarde sera envoyer une branche develop. Nous avons préféré créer une branche de travail pour garder la branche principal (ou main) destinée au déploiement final de l'application.
-Ci dessous, un exemple de l'architecture de notre travail :
-[SCREENSHOT GITFLOW GRAPH]
-
-Gitub nous permet d'utiliser la méthode Kanban. Les tickets y sont déposés par priorité après concertation lors de réunions. Chaque ticket est attribué à un développeur et leur statut sont mis à jour après validation de la Pull Request (ou PR). Ici encore l'outil Github propose un système de validation (ou code review) :
-[SCREENSHOT Kanban GITHUB]
-La colonne backlog représente la colonne de tickets à prendre (sans urgence).
-
-Nous évoluons avec la configuration suivante :
-[SCEENSHOT CONFIG PR GITHUB)
-
-Aucun des membres de notre équipe n'avait participé au développement d'application en groupe avant. Nous avons donc été confrontés à certains obstacles durant notre progression. Les situations à traiter portait sur :
-- la réalisation du schéma de bases de données
-- l'utilisation de git
-- une mauvaise attribution des tickets à traiter
-
-En effet, alors Karim se chargeait d'effectuer le schéma de base de données, Aymeric et moi-même étions affecté à d'autres tickets. Or après deux jours, il était dans l'impasse et avait peu avancé sur le sujet. 
-Ce contre temps nous a forcé à nous réunir au milieu d'un sprint initialement fixé à 5 jours. 
-Le système de PR
-Les Merges
-Devant ces difficultés, nous avons établi que: 
-- des tickets étaient trop conséquents
-- nous étions chacun sur les mêmes sujets depuis 2 jours
-
-Suite à cette réunion, nous avons décider de :
-- allouer un temps de veille groupé autour de la création d'un schéma de base de données et effectuer ce ticket ensemble
-- décomposer les tâches importantes en tickets plus petits
-- veiller à ce que chacun de nous participe bien à toutes les parties du projet (front, back, gestion de projet)
-- et enfin, diviser par 2 la durée des sprints
-
-La progression est devenue plus fluide et la mise en place de sprints courts nous garantit une bonne réactivité face aux nouvelles difficultés rencontrées. 
-
-C'est-à-dire que la sauvegarde ne peut être publiée sur la branche develop uniquement si deux parties ont révisé et validé mon code.
-[SCREENSHOT VALIDATION PR)
-
-
-- Mise en place d'un kanban sur Github et création d'un backlog avec le plus de tâches possibles
-définition des règles des sprints (durée, dailies, rétrospectives, etc...)
-(Agile, Sprints, retro planning, Kanban, Gantt, les métiers du devops et des entreprises 
-digitales (QA, PO, Scrum master, etc...), documentation de lib UI,)
-
-
-
-
-
-
-
-Dans le cadre de l'intégration continue, cette action sera le déclencheur d'une série de tests automatisés : les tests statiques et dynamiques.
-
 Analyse statique
-Etape incontournable d'une démarche qualité, l'analyse statique du code passe par l'utilisation d'un Linter. Il s'agit d'un outil d'analyse statique de code source. Il sert à détecter :
-- des erreurs (très utile sur des langages interprétés comme JavaScript qui n'ont pas de phase de compilation) ;
-- des problèmes de syntaxe et de non-respect de style (tabulation vs espaces, indentation, etc.)
-
-Nous avons choisi l'outil ESLint avec la configuration suivante :
-[SCREENSHOT CONFIG ESLINT]
-Explications
-Une fois de plus, les règles appliqués ont été décidés en groupe afin que chacun puisse évoquer ses préférences.
-
-Nous avons également mis en place un formateur afin d'assurer la cohérence du formatage du code et d'automatiser ce processus. Alors qu'ESLint sera charger de détecter les erreurs, le formateur lui va avoir la capacité de les corriger.
-
-Pour ce faire, il suffit de configurer des règles dans le fichier .prettierrc comme suit : [SCREENSHOT CONFIG PRETTIER] 
-
-Dans le cas de conflits entre ESLint et Prettier, la configuration par ce fichier donnera automatiquement la priorité au Prettier sur le linter.
-Ces outils offrent un choix d'utilisation personnalisé grâce à leurs extensions accessibles sur VScode.
-L'exemple ci-dessous indique le paramétrage adéquat pour un formatage automatique lors du commit.
-[SCREENSHOT CONFIG VSCODE]
-Le code ne peut être envoyé sur le repo distant sans avoir été formaté au préalable.
+C2 / C3 / C7
 
 Tests dynamiques 
-A ce jour, nous n'avons pas encore mis des tests en place. En revanche, nous projettons d'effectuer en premier lieu des tests unitaires sur la partie Front. L’avantage des tests unitaires est qu’ils sont rapides à écrire et à exécuter. La technologie ReactNative nous impose d'utiliser un outil adapté. Nous avons séléctionné Jest, le framework le plus utilisé en Javascript actuellement. 
+C4 / C6 / C7
 
-Nous restons vigilent sur l'emploi des 'Describe'. Ce qui nous garantit un gain de temps dans la détection et résolution (ou fix) des erreurs. 
-Ci-dessous, un exemple de test unitaire effectué lors de notre projet : JEST-EXPO ?
-[SCREENSHOT EXEMPLE TEST UNIT] 
-Explications
-
-La mise en place de test de bout en bout (ou end to end) va nous permettre de tester chaque fonctionnalité de notre application.
-Comparaison de Cypress, Detox, Vitest .. + Choix 
-[SCREENSHOT EXEMPLE DE TEST E2E]
-Enfin, l'analyse de la code coverage pourrait avoir un rôle important dans le développement de notre application. Or à ce stade, il aurait peu d'intérêt puisque le pourcentage de couverture retournerait un résultat inférieur à 1%.
- 
-Toutes les étapes vue précédemment vont devenir automatique dans le processus d'intégration (ou CI) grâce à Github Actions. Le choix de cet outil s'est fait naturellement car il nous permet d'utiliser une nouvelle fonctionnalité de Github.
-
-Le configuration du fichier .yml va permettre d'automatiser toutes les étapes de compilation, de vérification de la qualité du code, de test et de packaging. Les étapes (ou jobs) seront lancées successivement lors de chaque nouveau push. Elles définissent un workflow :
-[SCREENSHOT .YML]
-● Paramétrer les phases d'exécution des tests dans l’environnement de test à chaque push (sur la
-branche concernée)
-
-# 2 - Qualité, tests et intégration continue
-C1 / C6 / C7
 
 C1 ++
 Nous avons dû effectuer des veilles afin de choisir les technologies adaptées à notre projet. 
@@ -213,34 +109,6 @@ Une fois validés, les tickets sont automatiquement classés dans la colonne cor
 
 
 # Documentation et déploiement
-C4 / C6 / C7
-Storybook = lorsque je push, je mets en ligne ma documentation (comme vercel mais avec React Native)
-Je pensais pouvoir utiliser Vercel mais pas compatible. Pour ce faire, j'ai dû effectuer de la veille sur ... 
-Cela permet la publication et la mise à disposition de documentations pour les autres particpants du projet.
-
-C4 :
-Mise en place et utilisation de Docker localement avec des configurations d'environnement différents -> Docker + matrice/.env+ définition de préprod
-● À chaque push (sur la branche concernée) paramétrer les phases de build pour un environnement de
-pré-production
-● Paramétrer les phases de livraison des builds en environnement de pré-production
-
-# C5 :
-Microservice + Duplication des chaînes d'outils CI par services + lib associées
-● Décomposer une application monolithique en plusieurs composants et services
-● Utiliser un service de conteneurisation pour tous les environnements : dev, test, prod, etc
-● Adapter toute la chaîne DevOps à cette nouveauté
-
-# C7
-● expliquer et partager la culture DevOps
-● expliquer et partager la méthode DevOps : les rôles, les outils, les leviers, etc
-● analyser un processus Devops
-● préconiser des améliorations à un processus DevOps
-Problèmes rencontrés - gestion des conflits (github)
-Dev ops comme méthode de travail
-- Mise en place d'un kanban sur Github et création d'un backlog avec le plus de tâches possibles
-définition des règles des sprints (durée, dailies, rétrospectives, etc...)
-(Agile, Sprints, retro planning, Kanban, Gantt, les métiers du devops et des entreprises 
-digitales (QA, PO, Scrum master, etc...), documentation de lib UI,)
 
 # Source 
 (https://github.com/Calanfive/Documentation/tree/main/DevOps)
